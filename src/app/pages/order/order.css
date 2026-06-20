@@ -119,6 +119,48 @@
 
 .calculate-button {
     width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.calculate-button .button-label {
+    display: inline-block;
+    transition: opacity .12s ease;
+}
+
+.calculate-button .button-label.is-hidden {
+    opacity: 0;
+}
+
+.calculate-button .button-spinner {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculate-button .button-spinner.is-active {
+    display: flex;
+}
+
+.calculate-button .button-spinner::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: button-spinner-rotate 0.8s linear infinite;
+}
+
+@keyframes button-spinner-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .main-result {
